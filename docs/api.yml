@@ -58,6 +58,65 @@ paths:
                   $ref: '#/components/schemas/Book'
   /authors:
   #TODO2: complete GET (can be filtered by name) - PUT - DELETE
+    get:
+      tags:
+        - Authors
+      summary: Get the authors
+      description: The list of all authors
+      parameters:
+        - name: authorName
+          in: query
+          description: Filter the author by given name
+          required: false
+          schema:
+            type: string
+      responses:
+        200:
+          description: The list of authors
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/authors'
+    put:
+      tags:
+        - Authors
+      summary: Update author
+      description: Update partially or totally the author's information
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/authors'
+      responses:
+        200:
+          description: The list of created or updated authors
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/authors'
+    delete:
+      tags:
+        - Authors
+      summary: Delete a author
+      description: Delete one author with given id
+      parameters:
+        - name: id
+          in: query
+          description: given id for the delete operation
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Deleted successfully
+        '500':
+          description: internal server error
 components:
   schemas:
     Book:
