@@ -249,6 +249,18 @@ paths:
           required: false
           schema:
             type: string
+        - in: query
+          name: page
+          required: false
+          schema:
+            type: integer
+          example: 1
+        - in: query
+          name: pageSize
+          required: false
+          schema:
+            type: integer
+          example: 50
       responses:
         '200':
           description: success operation
