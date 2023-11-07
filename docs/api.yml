@@ -220,14 +220,16 @@ paths:
       tags:
         - Authors
       summary: Delete a author
-      description: Delete one author with given id
+      description: Delete one or many author with list of id
       parameters:
-        - name: id
+        - name: listOfId
           in: query
           description: given id for the delete operation
           required: true
           schema:
-            type: integer
+            type: array
+            items:
+              type: integer
       responses:
         '200':
           description: Deleted successfully
