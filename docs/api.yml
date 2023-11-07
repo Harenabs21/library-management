@@ -27,16 +27,16 @@ paths:
             type: string
         #TODO3: add parameter to filter books by intervals of dates of the releaseDate
         - in: query
-          name: firstDate
+          name: releaseDateMin
           description: first parameter for the filtering
-          required: true
+          required: false
           schema:
             type: string
             format: date
         - in: query
-          name: secondDate
+          name: releaseDateMax
           description: second parameter for the filtering
-          required: true
+          required: false
           schema:
             type: string
             format: date
