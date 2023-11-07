@@ -259,11 +259,7 @@ components:
         pageNumbers: 
           type: integer
         topic:
-          type: string
-          enum:
-            - ROMANCE
-            - COMEDY
-            - OTHER
+          $ref: '#/components/schemas/Topics'
         releaseDate:
           type: string
           format: date
@@ -284,3 +280,12 @@ components:
       required:
         - bookId
         - authorId
+    Topics:
+      type: object
+      properties:
+        id:
+          type: string
+          enum:
+            - ROMANCE
+            - COMEDY
+            - OTHER
