@@ -165,3 +165,18 @@ components:
           enum:
             - M
             - F
+    CrupdateBook:
+      type: object
+      properties:
+        id:
+          type: integer
+        bookName:
+          type: string
+        pageNumbers: 
+          type: integer
+        topic:
+          type: string
+          enum:
+            - ROMANCE
+            - COMEDY
+            - OTHER
