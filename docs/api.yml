@@ -82,6 +82,23 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Book'
+    delete:
+      tags:
+        - Books
+      summary: Delete a books
+      description: Delete one /books/ with given id
+      parameters:
+        - name: id
+          in: query
+          description: given id for the delete operation
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Deleted successfully
+        '500':
+          description: internal server error
   /books/{bookId}/authors/{authorId}:
     put:
       tags:
