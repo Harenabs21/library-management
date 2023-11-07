@@ -2,7 +2,7 @@ openapi: 3.0.3
 info:
   title: Library API
   version: 1.1.0
-  description: STD22001
+  description: STD22049
 servers:
   - url: https://library.com
 tags:
@@ -126,6 +126,35 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Book'
+
+  /authors/page/{page}/size/{pageSize}:
+    get:
+      tags:
+        - Authors
+      summary: Get the authors
+      description: The list of all authors
+      parameters:
+        - in: path
+          name: page
+          required: true
+          schema:
+            type: integer
+          example: 1
+        - in: path
+          name: pageSize
+          required: true
+          schema:
+            type: integer
+          example: 50
+      responses:
+        200:
+          description: The list of authors
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/authors'
   /authors:
   #TODO2: complete GET (can be filtered by name) - PUT - DELETE
     get:
