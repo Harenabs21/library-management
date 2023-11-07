@@ -278,6 +278,21 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Topics'
+    delete:
+      tags:
+        - Topics
+      summary: Delete a topic
+      parameters:
+        - in: query
+          name: topicId
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: succes operation
+        '500':
+          description: internal server error
   /topics/{topicId}:
     put:
       tags:
