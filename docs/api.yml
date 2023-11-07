@@ -60,7 +60,7 @@ paths:
             schema:
               type: array
               items:
-                $ref: '#/components/schemas/Book'
+                $ref: '#/components/schemas/CrupdateBook'
       responses:
         200:
           description: The list of created or updated books
@@ -87,7 +87,33 @@ paths:
             type: integer
       responses:
         '200':
-          description: success
+          description: updated successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Book'
+  /books/authors:
+    put:
+      tags:
+        - Books
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/UpdateBookAuthor'
+      responses:
+        '200':
+          description: list of updated books
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Book'
   /authors:
   #TODO2: complete GET (can be filtered by name) - PUT - DELETE
     get:
@@ -185,6 +211,16 @@ components:
       allOf:
         - $ref: '#/components/schemas/CrupdateBook'
         - type: object
-          properties:
-            author:
-              $ref: "#/components/schemas/authors"
+      properties:
+        author:
+          $ref: "#/components/schemas/authors"
+    UpdateBookAuthor:
+      type: object
+      properties:
+        bookId:
+          type: string
+        authorId:
+          type: integer
+      required:
+        - bookId
+        - authorId
