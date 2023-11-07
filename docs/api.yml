@@ -258,6 +258,26 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Topics'
+    put:
+      tags:
+        - Topics
+      summary: update a topic
+      requestBody:
+        content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Topics'
+      responses:
+        '200':
+          description: succes operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Topics'
 components:
   schemas:
     authors:
@@ -314,3 +334,5 @@ components:
             - ROMANCE
             - COMEDY
             - OTHER
+      required:
+        - id
