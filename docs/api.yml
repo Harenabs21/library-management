@@ -278,6 +278,25 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Topics'
+  /topics/{topicId}:
+    put:
+      tags:
+        - Topics
+      parameters:
+        - in: path
+          name: topicId
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: succes operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Topics'
 components:
   schemas:
     authors:
