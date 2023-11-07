@@ -12,6 +12,8 @@ tags:
     description: request about authors
   - name: Topics
     description: request about topics
+  - name: AuthorTopics
+    description: association of topics and authors
 paths:
   /books:
     get:
@@ -324,6 +326,20 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Topics'
+  /authorTopics:
+    get:
+      tags:
+        - AuthorTopics
+      summary: Get list of author with their topics
+      responses:
+        '200':
+          description: succes operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/authorTopics'
 components:
   schemas:
     authors:
@@ -382,3 +398,8 @@ components:
             - OTHER
       required:
         - id
+    authorTopics:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/authors'
+        - $ref: '#/components/schemas/Topics'
