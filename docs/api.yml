@@ -10,6 +10,8 @@ tags:
     description: request about books
   - name: Authors
     description: request about authors
+  - name: Topics
+    description: request about topics
 paths:
   /books:
     get:
@@ -235,6 +237,27 @@ paths:
           description: Deleted successfully
         '500':
           description: internal server error
+  /topics:
+    get:
+      tags:
+        - Topics
+      summary: Get all topics
+      description: Filter the topics with or without the topic name
+      parameters:
+        - in: query
+          name: topicName
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: success operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Topics'
 components:
   schemas:
     authors:
@@ -284,6 +307,8 @@ components:
       type: object
       properties:
         id:
+          type: string
+        topicName:
           type: string
           enum:
             - ROMANCE
