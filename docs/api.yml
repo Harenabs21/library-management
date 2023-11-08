@@ -308,3 +308,46 @@ components:
       required:
         - bookId
         - authorId
+    DataBook:
+      type: object
+      properties:
+        bookName:
+          type: string
+        author:
+          type: string
+        pageNumbers:
+          type: integer
+        topic:
+          type: string
+        releaseDate:
+          type: string
+        idAuthor:
+          type: integer
+    DataAuthor:
+      type: object
+      properties:
+        authorName:
+          type: string
+        sex:
+          type: string
+    
+    ImportBookJSON:
+      allOf:
+        - $ref: '#/components/schemas/DataBook'
+    ImportBookExcel:
+      allOf:
+        - $ref: '#/components/schemas/DataBook'
+    ImportAuthorJSON:
+      allOf:
+        - $ref: '#/components/schemas/DataAuthor'
+    ImportAuthorExcel:
+      allOf:
+          - $ref: '#/components/schemas/DataAuthor'
+    ImportAuthor:
+      oneOf:
+        - $ref: '#/components/schemas/ImportAuthorJSON'
+        - $ref: '#/components/schemas/ImportAuthorExcel'
+    ImportBook:
+      oneOf:
+        - $ref: '#/components/schemas/ImportBookJSON'
+        - $ref: '#/components/schemas/ImportBookExcel'
