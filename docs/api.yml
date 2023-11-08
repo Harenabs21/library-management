@@ -43,13 +43,7 @@ paths:
         - $ref: '#/components/parameters/queryPagination'
       responses:
         200:
-          description: The list of filtered books
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Book'
+          $ref: '#/components/responses/successForBooks'
     put:
       tags:
         - Books
@@ -231,6 +225,19 @@ components:
         type: string
         pattern: "^[0-9]+-[0-9]+$"
         default: "1-50"
+  responses:
+    successForBooks:
+      description: OK!
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '#/components/schemas/Status'
+              - 
+                type: object
+                properties:
+                  body:
+                    $ref: '#/components/schemas/Book'
   schemas:
     Status:
       type: object
