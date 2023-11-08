@@ -232,6 +232,15 @@ components:
         pattern: "^[0-9]+-[0-9]+$"
         default: "1-50"
   schemas:
+    Status:
+      type: object
+      properties:
+        code:
+          type: integer
+          description: code of the response
+        message:
+          type: string
+          description: message of the response
     authors:
       type: object
       properties:
