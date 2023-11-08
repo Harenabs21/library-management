@@ -119,13 +119,7 @@ paths:
         - $ref: '#/components/parameters/pathPagination'
       responses:
         200:
-          description: The list of authors
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/authors'
+          $ref: '#/components/responses/successForAuthors'
   /authors:
   #TODO2: complete GET (can be filtered by name) - PUT - DELETE
     get:
@@ -142,13 +136,7 @@ paths:
             type: string
       responses:
         200:
-          description: The list of authors
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/authors'
+          $ref: '#/components/responses/successForAuthors'
     put:
       tags:
         - Authors
@@ -163,13 +151,7 @@ paths:
                 $ref: '#/components/schemas/authors'
       responses:
         200:
-          description: The list of created or updated authors
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/authors'
+          $ref: '#/components/responses/successForAuthors'
     delete:
       tags:
         - Authors
@@ -215,6 +197,14 @@ components:
           schema:
             allOf:
               - $ref: '#/components/schemas/Book'
+    successForAuthors:
+      description: OK!
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '#/components/schemas/authors'
+        
   schemas:
     authors:
       type: object
