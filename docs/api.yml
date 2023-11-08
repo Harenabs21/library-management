@@ -236,6 +236,23 @@ paths:
         '500':
           description: internal server error
 components:
+  parameters:
+    pathPagination:
+      name: page
+      in: path
+      required: true
+      schema:
+        type: string
+        pattern: "^[0-9]+-[0-9]+$"
+        default: "1-50"
+    queryPagination:
+      name: page
+      in: query
+      required: false
+      schema:
+        type: string
+        pattern: "^[0-9]+-[0-9]+$"
+        default: "1-50"
   schemas:
     authors:
       type: object
