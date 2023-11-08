@@ -40,18 +40,7 @@ paths:
           schema:
             type: string
             format: date
-        - in: query
-          name: page
-          required: false
-          schema:
-            type: integer
-          example: 1
-        - in: query
-          name: pageSize
-          required: false
-          schema:
-            type: integer
-          example: 50
+        - $ref: '#/components/parameters/queryPagination'
       responses:
         200:
           description: The list of filtered books
@@ -144,25 +133,14 @@ paths:
                 items:
                   $ref: '#/components/schemas/Book'
 
-  /authors/page/{page}/size/{pageSize}:
+  /authors/page_with_size/{pageAndSize}:
     get:
       tags:
         - Authors
       summary: Get the authors
       description: The list of all authors
       parameters:
-        - in: path
-          name: page
-          required: true
-          schema:
-            type: integer
-          example: 1
-        - in: path
-          name: pageSize
-          required: true
-          schema:
-            type: integer
-          example: 50
+        - $ref: '#/components/parameters/pathPagination'
       responses:
         200:
           description: The list of authors
@@ -238,7 +216,7 @@ paths:
 components:
   parameters:
     pathPagination:
-      name: page
+      name: pageAndSize
       in: path
       required: true
       schema:
@@ -246,7 +224,7 @@ components:
         pattern: "^[0-9]+-[0-9]+$"
         default: "1-50"
     queryPagination:
-      name: page
+      name: pageAndSize
       in: query
       required: false
       schema:
