@@ -92,6 +92,29 @@ paths:
             $ref: '#/components/responses/forbiddenError'
           500:
             $ref: '#components/responses/serverError'
+  /books/import:
+    post:
+      tags:
+        - Books
+      summary: Import books
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ImportBook'
+          application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+            schema:
+              $ref: '#/components/schemas/ImportBook'
+      responses:
+          200:
+            $ref: '#/components/responses/successForBooks'
+          400:
+            $ref: '#/components/responses/badRequest'
+          403:
+            $ref: '#/components/responses/forbiddenError'
+          500:
+            $ref: '#components/responses/serverError'
   /books/{bookId}/authors/{authorId}:
     put:
       tags:
