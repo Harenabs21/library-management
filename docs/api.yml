@@ -214,22 +214,8 @@ components:
         application/json:
           schema:
             allOf:
-              - $ref: '#/components/schemas/Status'
-              - 
-                type: object
-                properties:
-                  body:
-                    $ref: '#/components/schemas/Book'
+              - $ref: '#/components/schemas/Book'
   schemas:
-    Status:
-      type: object
-      properties:
-        code:
-          type: integer
-          description: code of the response
-        message:
-          type: string
-          description: message of the response
     authors:
       type: object
       properties:
