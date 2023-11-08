@@ -204,7 +204,12 @@ components:
           schema:
             allOf:
               - $ref: '#/components/schemas/authors'
-        
+    badRequest:
+      description: Bad request
+    forbiddenError:
+      description: Forbidden
+    serverError:
+      description: Internal server error
   schemas:
     authors:
       type: object
