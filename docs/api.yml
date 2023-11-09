@@ -269,6 +269,28 @@ paths:
           $ref: '#/components/responses/forbiddenError'
         500:
           $ref: '#components/responses/serverError'
+  /visitors:
+    get:
+      tags:
+        - Visitors
+      summary: Get list of visitors
+      description: Display list of visitors
+      parameters:
+        - in: query
+          name: visitorName
+          description: name of the visitor 
+          required: false
+          schema:
+            type: string
+      responses:
+        200:
+          $ref: '#/components/responses/successForVisitors'
+        400:
+          $ref: '#/components/responses/badRequest'
+        403:
+          $ref: '#/components/responses/forbiddenError'
+        500:
+          $ref: '#components/responses/serverError'
     
 components:
   parameters:
