@@ -309,6 +309,16 @@ components:
             properties:
               body:
                 $ref: '#/components/schemas/authors'
+    successForVisitors:
+      description: OK!
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '#/components/schemas/defaultResponseFor200'
+            properties:
+              body:
+                $ref: '#/components/schemas/listOfVisitors'
     badRequest:
       description: Bad request
       content:
