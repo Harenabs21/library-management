@@ -361,6 +361,34 @@ components:
                 type: string 
                 example: The server has occured an error
   schemas:
+    200_Success_book:  
+      type: object
+      properties:
+        status:
+          type: object
+          properties:
+            code:
+              type: integer
+              example: 200
+            message:
+              type: string
+              example: OK
+        body:
+          $ref: '#/components/schemas/Book'
+    200_Success_author:  
+      type: object
+      properties:
+        status:
+          type: object
+          properties:
+            code:
+              type: integer
+              example: 200
+            message:
+              type: string
+              example: OK
+        body:
+          $ref: '#/components/schemas/authors'
     authors:
       type: object
       properties:
