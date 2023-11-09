@@ -354,6 +354,15 @@ components:
       required:
         - bookId
         - authorId
+    Visitors:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        reference:
+          type: string
     DataBook:
       type: object
       properties:
