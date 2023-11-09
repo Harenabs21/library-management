@@ -10,6 +10,8 @@ tags:
     description: request about books
   - name: Authors
     description: request about authors
+  - name: Visitors
+    description: request about visitors
 paths:
   /books:
     get:
