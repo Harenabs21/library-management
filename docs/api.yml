@@ -103,7 +103,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/ImportBook'
-          application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+          application/vnd.ms-excel:
             schema:
               $ref: '#/components/schemas/ImportBook'
       responses:
@@ -202,6 +202,8 @@ paths:
           $ref: '#components/responses/serverError'
   /authors/import:
     post:
+      tags:
+        - Authors
       summary: Import authors
       requestBody:
         required: true
@@ -209,7 +211,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/ImportAuthor'
-          application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+          application/vnd.ms-excel:
             schema:
               $ref: '#/components/schemas/ImportAuthor'
       responses:
