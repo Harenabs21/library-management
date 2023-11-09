@@ -305,10 +305,61 @@ components:
               - $ref: '#/components/schemas/authors'
     badRequest:
       description: Bad request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                    example: 400
+                  message:
+                    type: string
+                    example: bad request
+              body:
+                type: string 
+                example: Invalid input
     forbiddenError:
       description: Forbidden
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                    example: 403
+                  message:
+                    type: string
+                    example: Forbidden
+              body:
+                type: string 
+                example: Access denied
     serverError:
       description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                    example: 500
+                  message:
+                    type: string
+                    example: Server error
+              body:
+                type: string 
+                example: The server has occured an error
   schemas:
     authors:
       type: object
