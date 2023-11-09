@@ -295,14 +295,14 @@ components:
         application/json:
           schema:
             allOf:
-              - $ref: '#/components/schemas/Book'
+              - $ref: '#/components/schemas/200_Success_book'
     successForAuthors:
       description: OK!
       content:
         application/json:
           schema:
             allOf:
-              - $ref: '#/components/schemas/authors'
+              - $ref: '#/components/schemas/200_Success_author'
     badRequest:
       description: Bad request
       content:
