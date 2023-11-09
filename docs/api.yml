@@ -388,7 +388,10 @@ components:
           type: string
         sex:
           type: string
-    
+    listOfVisitors:
+      type: array
+      items:
+        $ref: '#/components/schemas/Visitors'
     ImportBookJSON:
       allOf:
         - $ref: '#/components/schemas/DataBook'
