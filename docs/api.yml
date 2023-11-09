@@ -202,29 +202,6 @@ paths:
           $ref: '#/components/responses/forbiddenError'
         500:
           $ref: '#components/responses/serverError'
-  /authors/import:
-    post:
-      tags:
-        - Authors
-      summary: Import authors
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ImportAuthor'
-          application/vnd.ms-excel:
-            schema:
-              $ref: '#/components/schemas/ImportAuthor'
-      responses:
-        200:
-          $ref: '#/components/responses/successForAuthors'
-        400:
-          $ref: '#/components/responses/badRequest'
-        403:
-          $ref: '#/components/responses/forbiddenError'
-        500:
-          $ref: '#components/responses/serverError'
     put:
       tags:
         - Authors
@@ -269,6 +246,30 @@ paths:
           $ref: '#/components/responses/forbiddenError'
         500:
           $ref: '#components/responses/serverError'
+  /authors/import:
+    post:
+      tags:
+        - Authors
+      summary: Import authors
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ImportAuthor'
+          application/vnd.ms-excel:
+            schema:
+              $ref: '#/components/schemas/ImportAuthor'
+      responses:
+        200:
+          $ref: '#/components/responses/successForAuthors'
+        400:
+          $ref: '#/components/responses/badRequest'
+        403:
+          $ref: '#/components/responses/forbiddenError'
+        500:
+          $ref: '#components/responses/serverError'
+    
 components:
   parameters:
     pathPagination:
