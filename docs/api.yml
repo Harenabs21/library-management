@@ -460,8 +460,13 @@ components:
       allOf:
         - $ref: '#/components/schemas/DataAuthor'
     ImportAuthorExcel:
-      allOf:
-          - $ref: '#/components/schemas/DataAuthor'
+      type: string
+      format: binary
+      properties:
+        authorName:
+          type: string
+        sex:
+          type: string
     ImportAuthor:
       oneOf:
         - $ref: '#/components/schemas/ImportAuthorJSON'
