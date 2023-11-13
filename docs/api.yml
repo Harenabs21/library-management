@@ -169,7 +169,7 @@ paths:
       summary: Get the authors
       description: The list of all authors
       parameters:
-        - $ref: '#/components/parameters/pathPagination'
+        - $ref: '#/components/parameters/PathPagination'
       responses:
         200:
           $ref: '#/components/responses/successForAuthors'
@@ -272,14 +272,19 @@ paths:
     
 components:
   parameters:
-    pathPagination:
-      name: pageAndSize
+    PathPagination:
+      name: pathPagination
       in: path
       required: true
       schema:
-        type: string
-        pattern: "^[0-9]+-[0-9]+$"
-        default: "1-50"
+        type: object
+        properties:
+          page:
+            type: integer
+            default: 1
+          pageSize:
+            type: integer
+            default: 50
     queryPagination:
       name: pageAndSize
       in: query
