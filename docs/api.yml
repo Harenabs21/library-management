@@ -491,3 +491,14 @@ components:
       oneOf:
         - $ref: '#/components/schemas/ImportBookJSON'
         - $ref: '#/components/schemas/ImportBookExcel'
+    RequestTemplateBody:
+      type: object
+      properties:
+        status:
+          properties:
+            code:
+              type: integer
+              example: 200
+            message:
+              type: string
+              example: ok
