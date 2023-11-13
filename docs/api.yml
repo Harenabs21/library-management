@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: Library API
-  version: 1.2.0
+  version: 1.8.0
   description: STD22049
 servers:
   - url: https://library.com
@@ -9,9 +9,8 @@ tags:
   - name: Books
     description: request about books
   - name: Authors
-    description: request about authors
-  - name: Visitors
-    description: request about visitors
+    description: request about Authors
+
 paths:
   /books:
     get:
@@ -416,15 +415,6 @@ components:
       required:
         - bookId
         - authorId
-    Visitors:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        reference:
-          type: string
     DataBook:
       type: object
       properties:
@@ -447,10 +437,6 @@ components:
           type: string
         sex:
           type: string
-    listOfVisitors:
-      type: array
-      items:
-        $ref: '#/components/schemas/Visitors'
     ImportBookJSON:
       allOf:
         - $ref: '#/components/schemas/DataBook'
