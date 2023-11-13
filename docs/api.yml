@@ -42,7 +42,7 @@ paths:
           schema:
             type: string
             format: date
-        - $ref: '#/components/parameters/queryPagination'
+        - $ref: '#/components/parameters/QueryPagination'
       responses:
         200:
           $ref: '#/components/responses/successForBooks'
@@ -162,7 +162,7 @@ paths:
         500:
           $ref: '#components/responses/serverError'
 
-  /authors/page_with_size/{pageAndSize}:
+  /authors/page_with_size/{pathPagination}:
     get:
       tags:
         - Authors
@@ -285,14 +285,19 @@ components:
           pageSize:
             type: integer
             default: 50
-    queryPagination:
-      name: pageAndSize
+    QueryPagination:
+      name: queryPagination
       in: query
       required: false
       schema:
-        type: string
-        pattern: "^[0-9]+-[0-9]+$"
-        default: "1-50"
+        type: object
+        properties:
+          page:
+            type: integer
+            default: 1
+          pageSize:
+            type: integer
+            default: 50
   responses:
     successForBooks:
       description: OK!
