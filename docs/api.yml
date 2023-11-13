@@ -294,15 +294,13 @@ components:
       content:
         application/json:
           schema:
-            allOf:
-              - $ref: '#/components/schemas/200_Success_book'
+            $ref: '#/components/schemas/200_Success_book'
     successForAuthors:
       description: OK!
       content:
         application/json:
           schema:
-            allOf:
-              - $ref: '#/components/schemas/200_Success_author'
+            $ref: '#/components/schemas/200_Success_author'
     badRequest:
       description: Bad request
       content:
@@ -361,22 +359,6 @@ components:
                 type: string 
                 example: The server has occured an error
   schemas:
-    200_Success_book:  
-      allOf:
-        - $ref: '#/components/schemas/RequestTemplateBody'
-        - properties:  
-            body:
-              type: array
-              items:
-                $ref: '#/components/schemas/Book'
-    200_Success_author:  
-      allOf:
-        - $ref: '#/components/schemas/RequestTemplateBody'
-        - properties:  
-            body:
-              type: array
-              items:
-                $ref: '#/components/schemas/authors'
     authors:
       type: object
       properties:
@@ -479,6 +461,23 @@ components:
       oneOf:
         - $ref: '#/components/schemas/ImportBookJSON'
         - $ref: '#/components/schemas/ImportBookExcel'
+    200_Success_book:
+      allOf:
+        - $ref: '#/components/schemas/RequestTemplateBody'
+        - properties:
+            body:
+              type: array
+              items:
+                $ref: '#/components/schemas/Book'
+    200_Success_author:
+      allOf:
+        - $ref: '#/components/schemas/RequestTemplateBody'
+        - properties:
+            body:
+              type: array
+              items:
+                $ref: '#/components/schemas/authors'
+            
     RequestTemplateBody:
       type: object
       properties:
