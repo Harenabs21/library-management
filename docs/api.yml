@@ -441,8 +441,21 @@ components:
       allOf:
         - $ref: '#/components/schemas/DataBook'
     ImportBookExcel:
-      allOf:
-        - $ref: '#/components/schemas/DataBook'
+      type: string
+      format: binary
+      properties:
+        bookName:
+          type: string
+        author:
+          type: string
+        pageNumbers:
+          type: integer
+        topic:
+          type: string
+        releaseDate:
+          type: string
+        idAuthor:
+          type: integer
     ImportAuthorJSON:
       allOf:
         - $ref: '#/components/schemas/DataAuthor'
